@@ -1,0 +1,49 @@
+<div class="row">
+
+    <div class="content-header">
+        <h1>Contas Bancarias <small>Gerenciamento de Contas</small></h1>
+        <div class="grey-text">
+            <small>
+                <a href="">IFinance</a>
+                <span>Suas Contas</span>
+            </small>
+        </div>
+    </div>
+
+    <div class="card col s12">
+        <div class="card-content">
+            <h1>Edição de Contas Bancarias</h1>
+            <form class="row" autocomplete="off" (submit)="save(account.id)">
+                <div class="input-field col s6">
+                    <input name="title" [(ngModel)]="account.title" type="text" id="title" class="validate" placeholder="Como você prefere identificar esta conta?" required>
+                    <label for="title" class="active">Título da conta</label>
+                </div>
+                <div class="input-field col s6">
+                    <input name="balance_initial" [(ngModel)]="account.balance_initial" type="text" id="title" class="validate" placeholder="Qual o valor inicial desta conta?" required>
+                    <label for="title" class="active">Valor inicial</label>
+                </div>
+                <div class="input-field col s6">
+                    <select name="bank_id" [(ngModel)]="account.bank_id" id="bank_id">
+                      <option *ngFor="let bank of banks" [value]="bank.id">{{bank.code}}</option>
+                    </select>
+                    <label for="bank_id" class="active">Qual seu banco?</label>
+                </div>
+                <div class="input-field col s6">
+                    <input name="agency" [(ngModel)]="account.agency" type="number" id="agency" class="validate" placeholder="Qual o número da sua agencia?" required>
+                    <label for="agency" class="active">Número da agência</label>
+                </div>
+                <div class="input-field col s6">
+                    <input name="account_number" [(ngModel)]="account.account_number" type="number" id="account_number" class="validate" placeholder="Qual o número da sua conta?" required>
+                    <label for="accont_number" class="active">Número da conta</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="submit" class="waves-effect waves-light btn-large blue-grey darken-4" value="salvar">
+                </div>
+            </form>
+
+        </div>
+        <div class="card-action">
+            <a [routerLink]="['/accounts']">Voltar</a>
+        </div>
+    </div>
+</div>

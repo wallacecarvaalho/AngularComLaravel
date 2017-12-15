@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="content-header">
+        <h1>Contas Bancarias <small>Gerenciamento de Contas</small></h1>
+        <div class="grey-text">
+            <small>
+                <a href="">IFinance</a>
+                <span>Suas Contas</span>
+            </small>
+        </div>
+    </div>
+    <div class="card col s12">
+        <div class="card-content">
+            <table class="highlight">
+                <thead>
+                    <th>Contas</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let account of accounts" [routerLink]="['/accounts/'+account.id]">
+                        <td>
+                            {{account.title}}
+                            <small>Agência: {{account.agency}} / Conta: {{account.number}} / Código do Banco: {{account.bank_id}}</small>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-action">
+            <a [routerLink]="['/accounts/new']">Nova Conta</a>
+        </div>
+    </div>
+</div>
+<paginate></paginate>
